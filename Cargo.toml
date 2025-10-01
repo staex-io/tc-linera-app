@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+linera-sdk = { version = "0.15.4", features = [], default-features = false }
+serde = { version = "1.0.228", features = [], default-features = false }
+async-graphql = { version = "7.0.17", features = [], default-features = false }
