@@ -1,8 +1,13 @@
+#![cfg_attr(target_arch = "wasm32", no_main)]
+
 use std::sync::Arc;
 
 use linera_sdk::{Service, ServiceRuntime, abi::WithServiceAbi};
+use tc_linera_app::TrustedChainAbi;
 
-use crate::{TrustedChainAbi, state::TrustedChainState};
+use crate::state::TrustedChainState;
+
+mod state;
 
 linera_sdk::service!(TrustedChainService);
 

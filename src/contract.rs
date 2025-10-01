@@ -1,6 +1,11 @@
-use linera_sdk::{Contract, ContractRuntime, abi::WithContractAbi};
+#![cfg_attr(target_arch = "wasm32", no_main)]
 
-use crate::{TrustedChainAbi, state::TrustedChainState};
+use linera_sdk::{Contract, ContractRuntime, abi::WithContractAbi};
+use tc_linera_app::TrustedChainAbi;
+
+use crate::state::TrustedChainState;
+
+mod state;
 
 linera_sdk::contract!(TrustedChainContract);
 
