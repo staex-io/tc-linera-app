@@ -1,6 +1,10 @@
 #![cfg_attr(target_arch = "wasm32", no_main)]
 
-use linera_sdk::{Contract, ContractRuntime, abi::WithContractAbi};
+use linera_sdk::{
+    Contract, ContractRuntime,
+    abi::WithContractAbi,
+    views::{RootView, View},
+};
 use tc_linera_app::TrustedChainAbi;
 
 use crate::state::TrustedChainState;
@@ -25,22 +29,21 @@ impl Contract for TrustedChainContract {
     type EventValue = ();
 
     async fn load(runtime: ContractRuntime<Self>) -> Self {
-        todo!()
+        let state = TrustedChainState::load(runtime.root_view_storage_context())
+            .await
+            .unwrap();
+        Self { state, runtime }
     }
 
-    async fn instantiate(&mut self, argument: Self::InstantiationArgument) {
-        todo!()
+    async fn instantiate(&mut self, _argument: Self::InstantiationArgument) {
+        self.runtime.application_parameters();
     }
 
-    async fn execute_operation(&mut self, operation: Self::Operation) -> Self::Response {
-        todo!()
-    }
+    async fn execute_operation(&mut self, _operation: Self::Operation) -> Self::Response {}
 
-    async fn execute_message(&mut self, message: Self::Message) {
-        todo!()
-    }
+    async fn execute_message(&mut self, _message: Self::Message) {}
 
-    async fn store(self) {
-        todo!()
+    async fn store(mut self) {
+        self.state.save().await.unwrap()
     }
 }
