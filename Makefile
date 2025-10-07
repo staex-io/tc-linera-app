@@ -5,7 +5,7 @@ lint: fmt
 	cargo clippy --tests --all-targets --all-features -- -D warnings
 
 build:
-	cargo build --release --target wasm32-unknown-unknown
+	cargo build --locked --release --target wasm32-unknown-unknown
 
 init_wallet:
 	linera wallet init --faucet https://faucet.testnet-conway.linera.net
