@@ -13,11 +13,17 @@ init_wallet:
 init_wallet_local:
 	make init_wallet faucet=http://localhost:8080
 
+init_wallet_testnet:
+	make init_wallet faucet=https://faucet.testnet-conway.linera.net
+
 request_chain:
 	linera wallet request-chain --faucet $(faucet)
 
 request_chain_local:
 	make request_chain faucet=http://localhost:8080
+
+request_chain_testnet:
+	make request_chain faucet=https://faucet.testnet-conway.linera.net
 
 publish:
 	linera publish-and-create \
