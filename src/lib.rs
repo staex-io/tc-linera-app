@@ -4,7 +4,11 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub enum TrustedChainOperation {
-    Land { hash: String, signature: String },
+    Land {
+        id: String,        // telemetry id
+        hash: String,      // telemetry hash base64
+        signature: String, // telemetry signature base64
+    },
 }
 
 pub struct TrustedChainAbi;

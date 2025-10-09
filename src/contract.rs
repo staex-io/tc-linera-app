@@ -5,9 +5,9 @@ use linera_sdk::{
     abi::WithContractAbi,
     views::{RootView, View},
 };
-use tc_linera_app::TrustedChainAbi;
+use tc_linera_app::{TrustedChainAbi, TrustedChainOperation};
 
-use crate::state::TrustedChainState;
+use crate::state::{TelemetryData, TrustedChainState};
 
 mod state;
 
@@ -39,7 +39,21 @@ impl Contract for TrustedChainContract {
         self.runtime.application_parameters();
     }
 
-    async fn execute_operation(&mut self, _operation: Self::Operation) -> Self::Response {}
+    async fn execute_operation(&mut self, operation: TrustedChainOperation) -> Self::Response {
+        log::info!("execute operation: {:?}", operation);
+        match operation {
+            TrustedChainOperation::Land {
+                id,
+                hash,
+                signature,
+            } => {
+                self.state
+                    .telemetry_data
+                    .insert(&id, TelemetryData { hash, signature })
+                    .unwrap();
+            }
+        }
+    }
 
     async fn execute_message(&mut self, _message: Self::Message) {}
 
