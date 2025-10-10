@@ -2,7 +2,9 @@
 
 ## Usage
 
-## Testnet
+You can install and use Linera application on testnet and local network.
+
+### Testnet
 
 ```shell
 make init_wallet_testnet
