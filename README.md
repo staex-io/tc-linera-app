@@ -2,6 +2,21 @@
 
 ## Usage
 
+## Testnet
+
+```shell
+make init_wallet_testnet
+make request_chain_testnet
+make build
+make publish
+# fc7db02564389ad2886598769bfe2675c391970ae9155ca15b28fe1e8c0bdade
+# Get your current chain.
+linera wallet show
+# 787eda3c41d105ee9b3eb271dbafc182c173cbb77f0d70c183ece2ea85570c10
+make local_service
+# Go to http://localhost:7070/chains/787eda3c41d105ee9b3eb271dbafc182c173cbb77f0d70c183ece2ea85570c10/applications/fc7db02564389ad2886598769bfe2675c391970ae9155ca15b28fe1e8c0bdade
+```
+
 ### Local
 
 1. Remove already defined local keys and chains.
