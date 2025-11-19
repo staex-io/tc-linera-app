@@ -9,14 +9,18 @@ You can install and use Linera application on testnet and local network.
 ```shell
 make init_wallet_testnet
 make request_chain_testnet
+
 make build
-make publish
-# fc7db02564389ad2886598769bfe2675c391970ae9155ca15b28fe1e8c0bdade
-# Get your current chain.
-linera wallet show
-# 787eda3c41d105ee9b3eb271dbafc182c173cbb77f0d70c183ece2ea85570c10
+# Deploy your application.
+make publish # 2bb3ab9823ca30be4f55e09995f12be70958feec08b8b3e6472e250ae29c966d
+
+# Get your current chain (tags: DEFAULT).
+linera wallet show # 6e8a819845fd9bdb1173f33649f1dfc7b664f63748849a424cc721887ae0ab64
+
 make local_service
-# Go to http://localhost:7070/chains/787eda3c41d105ee9b3eb271dbafc182c173cbb77f0d70c183ece2ea85570c10/applications/fc7db02564389ad2886598769bfe2675c391970ae9155ca15b28fe1e8c0bdade
+
+# Go to http://localhost:7070/chains/<chain_id>/applications/<application_id>
+# Go to http://localhost:7070/chains/6e8a819845fd9bdb1173f33649f1dfc7b664f63748849a424cc721887ae0ab64/applications/2bb3ab9823ca30be4f55e09995f12be70958feec08b8b3e6472e250ae29c966d
 ```
 
 ### Local

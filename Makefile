@@ -27,7 +27,8 @@ request_chain_testnet:
 
 publish:
 	linera publish-and-create \
-  	target/wasm32-unknown-unknown/release/trusted_chain_{contract,service}.wasm
+  	target/wasm32-unknown-unknown/release/trusted_chain_contract.wasm \
+		target/wasm32-unknown-unknown/release/trusted_chain_service.wasm
 
 local_net:
 	RUST_LOG="info,linera_execution::wasm=debug" linera net up --with-faucet --faucet-port 8080
