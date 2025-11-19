@@ -35,3 +35,6 @@ local_net:
 
 local_service:
 	linera service --port 7070
+
+test:
+	cargo test --jobs 1 -- --nocapture --test-threads 1
