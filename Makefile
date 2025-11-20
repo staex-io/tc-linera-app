@@ -38,3 +38,6 @@ local_service:
 
 test:
 	cargo test --jobs 1 -- --nocapture --test-threads 1
+
+build_linera_image:
+	docker build -t linera-service -f Dockerfile .
