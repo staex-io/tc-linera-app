@@ -40,4 +40,14 @@ test:
 	cargo test --jobs 1 -- --nocapture --test-threads 1
 
 build_linera_image:
-	docker build -t linera-service -f Dockerfile .
+	docker build \
+		-t swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.1 \
+		-f Dockerfile \
+		.
+	docker push swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.1
+
+run_linera_image:
+	docker run --rm -it \
+		-v "${HOME}/.config/linera/:/root/.config/linera/" \
+		linera-service \
+		wallet show

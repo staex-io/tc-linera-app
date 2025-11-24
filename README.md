@@ -12,10 +12,10 @@ make request_chain_testnet
 
 make build
 # Deploy your application.
-make publish # 2bb3ab9823ca30be4f55e09995f12be70958feec08b8b3e6472e250ae29c966d
+make publish # adce643b6ffff6c49e7775f327a2cfe7a5682d169df547c292ce4382bced529a
 
 # Get your current chain (tags: DEFAULT).
-linera wallet show # 6e8a819845fd9bdb1173f33649f1dfc7b664f63748849a424cc721887ae0ab64
+linera wallet show # e2c1a391b6cfa3d714393d45b100a0bf6cbea85d0ddd989de586dc12d04333fb
 
 make local_service
 
