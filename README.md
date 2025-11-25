@@ -108,3 +108,12 @@ Query data
   }
 }
 ```
+
+## Linera service
+
+To build image with Linera binary to start Linera service in the container, you need to prepare a folder with wallet info, then you can build the image.
+
+```shell
+cp -r /home/user/.config/linera linera-tmp
+make build_linera_image
+```
