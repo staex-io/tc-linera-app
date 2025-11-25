@@ -15,4 +15,7 @@ RUN cargo install \
 
 FROM debian:bookworm-slim AS final
 COPY --from=builder /usr/local/cargo/bin/linera /usr/local/linera/bin/linera
+COPY linera-tmp/keystore.json /root/.config/linera/keystore.json
+COPY linera-tmp/wallet.db /root/.config/linera/wallet.db
+COPY linera-tmp/wallet.json /root/.config/linera/wallet.json
 ENTRYPOINT ["/usr/local/linera/bin/linera"]

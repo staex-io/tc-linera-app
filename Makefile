@@ -41,13 +41,13 @@ test:
 
 build_linera_image:
 	docker build \
-		-t swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.1 \
+		-t swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.5 \
 		-f Dockerfile \
 		.
-	docker push swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.1
+	docker push swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.5
 
 run_linera_image:
 	docker run --rm -it \
-		-v "${HOME}/.config/linera/:/root/.config/linera/" \
-		linera-service \
-		wallet show
+		-p 7070:7070 \
+		swr.eu-de.otc.t-systems.com/staex/trustedchain/linera:v0.0.5 \
+		service --port 7070
